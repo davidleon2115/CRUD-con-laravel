@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model
+class Order extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -14,9 +14,14 @@ class User extends Model
 
     protected $fillable = [
         'name',
-        'last-name',
+        'fecha',
+        'subtotal',
+        'total',
     ];
-    public function Order(){
-        return $this->hasOne(Order::class);
+    public function User(){
+        return $this->hasOne(User::class);
+    }
+    public function items(){
+        return $this->belongsToMany(Items::class);
     }
 }

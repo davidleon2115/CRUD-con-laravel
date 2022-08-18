@@ -6,17 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model
+class Imagen extends Model
 {
+
     use HasFactory;
     use SoftDeletes;
 
-
     protected $fillable = [
-        'name',
-        'last-name',
+        'url'
     ];
-    public function Order(){
-        return $this->hasOne(Order::class);
+
+    public function Product(){
+        return $this->hasOne(Product::class);
     }
+
 }
